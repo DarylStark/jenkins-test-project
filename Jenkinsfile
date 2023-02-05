@@ -2,16 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Create environment') {
+        stage('Install Python3 and Python3-venv') {
             steps {
-                echo '=== Creating environment ==='
-                pwd
+                apt install python3 python3-venv
+            }
+        }
+
+        stage('Create Python3 environment') {
+            steps {
+                python3 -m venv env
+                source env/bin/activate
             }
         }
 
         stage('Install dependencies') {
             steps {
-                echo '=== Installing dependencies ==='
+                pip3 install -r requirements.txt
             }
         }
 
