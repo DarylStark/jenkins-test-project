@@ -4,20 +4,22 @@ pipeline {
     stages {
         stage('Create environment') {
             steps {
-                echo 'Creating environment'
+                echo '=== Creating environment ==='
+                pwd
             }
         }
 
         stage('Install dependencies') {
             steps {
-                echo 'Installing dependencies'
+                echo '=== Installing dependencies ==='
             }
         }
 
         stage('Unit testing') {
             steps {
-                echo 'Running unit tests'
+                echo '=== Running unit tests ==='
             }
         }
     }
 }
+
