@@ -12,9 +12,9 @@ def test_factorial() -> None:
     try:
         factorial(-1)
     except ValueError:
-        assert true
+        assert True
     else:
-        assert false
+        assert False
 
     assert factorial(0) == 1
     assert factorial(1) == 1
