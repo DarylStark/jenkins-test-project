@@ -2,5 +2,4 @@
 
 . env/bin/activate
 
-pytest
-
+pytest -v
