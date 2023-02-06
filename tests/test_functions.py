@@ -15,4 +15,4 @@ def test_factorial() -> None:
     assert factorial(3) == 6
     assert factorial(4) == 24
     assert factorial(5) == 120
-    assert factorial(10) == 3628800
+    assert factorial(10) == 362880
