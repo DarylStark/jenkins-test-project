@@ -44,6 +44,18 @@ pipeline {
                 }
             }
         }
+
+        stage('TEST - Unit testing after merging') {
+            steps {
+                script {
+                    if (env.BRANCH_NAME != 'main') {
+                        sh 'jenkins/04-testing.sh'
+                    } else {
+                        echo 'Already on the main branch: nothing to do'
+                    }
+                }
+            }
+        }
     }
 }
 

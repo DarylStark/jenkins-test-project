@@ -1,4 +1,4 @@
-pwd
 git status
-git branch
-echo $BRANCH_NAME
+git checkout main
+git merge $BRANCH_NAME
+git status
