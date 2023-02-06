@@ -2,4 +2,5 @@
 
 . env/bin/activate
 
-echo "Here comes the unit testing!"
+pytest
+
