@@ -37,9 +37,9 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME != 'main') {
-                        echo 'Needs to be integrated'
+                        sh 'jenkins/05-merging.sh'
                     } else {
-                        echo 'Already the main branch'
+                        echo 'Already on the main branch: nothing to do'
                     }
                 }
             }
