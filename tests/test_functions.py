@@ -9,7 +9,14 @@ sys.path.append(
 from my_math.functions import *
 
 def test_factorial() -> None:
-    assert factorial(0) == 0
+    try:
+        factorial(-1)
+    except ValueError:
+        assert true
+    else:
+        assert false
+
+    assert factorial(0) == 1
     assert factorial(1) == 1
     assert factorial(2) == 2
     assert factorial(3) == 6
