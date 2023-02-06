@@ -28,6 +28,12 @@ def test_factorial() -> None:
 def test_power() -> None:
     # Zero
     assert power(2, 0) == 1
+    try:
+        assert power(0, 0)
+    except ValueError:
+        assert True
+    else:
+        assert False
 
     # Positive
     assert power(2, 1) == 2
