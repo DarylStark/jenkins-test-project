@@ -10,12 +10,16 @@ def factorial(number: int) -> int:
 
 
 def power_positive(base: int, pwr: int) -> int:
+    if pwr < 0:
+        raise ValueError('Number cannot be negative')
     if pwr == 0:
         return 1
     return power_positive(base, pwr - 1) * base
 
 
 def power_negative(base: int, pwr: int) -> int:
+    if pwr > 0:
+        raise ValueError('Number cannot be positive')
     if pwr == 0:
         return 1
     return power_negative(base, pwr + 1) / base

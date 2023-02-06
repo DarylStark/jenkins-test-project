@@ -26,8 +26,10 @@ def test_factorial() -> None:
 
 
 def test_power() -> None:
-    # Zero
+    # Zero power
     assert power(2, 0) == 1
+
+    # Zero number and power
     try:
         assert power(0, 0)
     except ValueError:
@@ -35,16 +37,54 @@ def test_power() -> None:
     else:
         assert False
 
-    # Positive
+    # Positive number and positive power
     assert power(2, 1) == 2
     assert power(2, 2) == 4
     assert power(2, 3) == 8
     assert power(2, 4) == 16
     assert power(2, 7) == 128
 
-    # Negative
+    # Positive number and negative power
     assert power(2, -1) == 0.5
     assert power(2, -2) == 0.25
     assert power(2, -3) == 0.125
     assert power(2, -4) == 0.0625
     assert power(2, -7) == 0.0078125
+
+    # Negative number and positive power
+    assert power(-2, 1) == -2
+    assert power(-2, 2) == 4
+    assert power(-2, 3) == -8
+    assert power(-2, 4) == 16
+    assert power(-2, 7) == -128
+
+    # Negative number and negative power
+    assert power(-2, -1) == -0.5
+    assert power(-2, -2) == 0.25
+    assert power(-2, -3) == -0.125
+    assert power(-2, -4) == 0.0625
+    assert power(-2, -7) == -0.0078125
+
+def test_power_positive_validation() -> None:
+    try:
+        assert power_positive(2, -1)
+        assert power_positive(2, -2)
+        assert power_positive(2, -3)
+        assert power_positive(2, -4)
+        assert power_positive(2, -7)
+    except ValueError:
+        assert True
+    else:
+        assert False
+
+def test_power_negative_validation() -> None:
+    try:
+        assert power_negative(2, 1)
+        assert power_negative(2, 2)
+        assert power_negative(2, 3)
+        assert power_negative(2, 4)
+        assert power_negative(2, 7)
+    except ValueError:
+        assert True
+    else:
+        assert False
