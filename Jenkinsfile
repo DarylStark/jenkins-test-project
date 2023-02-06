@@ -2,29 +2,34 @@ pipeline {
     agent any
 
     stages {
-        stage('Create Python3 environment') {
+        stage('Set exection permissions to pipeline scripts')
+        {
             steps {
-                sh 'pip3 install --user --upgrade pip'
-                sh 'pip3 install --user virtualenv'
-                sh 'python3 -m venv env'
+                sh 'chmod +x jenkins/*.sh'
             }
         }
 
-        stage('Activate Virtual environment') {
+        stage('Install tools for Python3 Virtual Environment') {
             steps {
-                sh '. env/bin/activate'
+                sh 'jenkins/01-install-tools.sh'
+            }
+        }
+
+        stage('Create Python3 Virtual Environment') {
+            steps {
+                sh 'jenkins/02-create-environment.sh'
             }
         }
 
         stage('Install dependencies') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh 'jenkins/03-install-dependencies.sh'
             }
         }
 
         stage('Unit testing') {
             steps {
-                echo '=== Running unit tests ==='
+                sh 'jenkins/04-testing.sh'
             }
         }
     }
