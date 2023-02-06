@@ -12,7 +12,7 @@ pipeline {
 
         stage('Activate Virtual environment') {
             steps {
-                sh 'source env/bin/activate'
+                sh '. env/bin/activate'
             }
         }
 
