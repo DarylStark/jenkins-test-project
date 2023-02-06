@@ -2,4 +2,4 @@
 
 . env/bin/activate
 
-pip3 install -r requirements
+echo "Here comes the unit testing!"
