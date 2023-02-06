@@ -22,6 +22,8 @@ def power_negative(base: int, pwr: int) -> int:
 
 
 def power(base: int, pwr: int) -> int:
+    if base == 0 and pwr == 0:
+        raise ValueError('Cannot raise 0 to the power of 0')
     if pwr == 0:
         return 1
     if pwr > 0:
