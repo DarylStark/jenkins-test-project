@@ -7,6 +7,7 @@ sys.path.append(
 )
 from my_math.functions import *
 
+
 def test_factorial() -> None:
     try:
         factorial(-1)
@@ -25,7 +26,19 @@ def test_factorial() -> None:
 
 
 def test_power() -> None:
+    # Zero
     assert power(2, 0) == 1
-    assert power(2, 2) == 2
-    assert power(2, 3) == 4
-    assert power(2, 4) == 8
+
+    # Positive
+    assert power(2, 1) == 2
+    assert power(2, 2) == 4
+    assert power(2, 3) == 8
+    assert power(2, 4) == 16
+    assert power(2, 7) == 128
+
+    # Negative
+    assert power(2, -1) == 0.5
+    assert power(2, -2) == 0.25
+    assert power(2, -3) == 0.125
+    assert power(2, -4) == 0.0625
+    assert power(2, -7) == 0.0078125
