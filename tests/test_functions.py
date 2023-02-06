@@ -5,7 +5,6 @@ sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(
         __file__), os.path.pardir)) + '/src'
 )
-
 from my_math.functions import *
 
 def test_factorial() -> None:
@@ -23,3 +22,10 @@ def test_factorial() -> None:
     assert factorial(4) == 24
     assert factorial(5) == 120
     assert factorial(10) == 3628800
+
+
+def test_power() -> None:
+    assert power(2, 0) == 1
+    assert power(2, 2) == 2
+    assert power(2, 3) == 4
+    assert power(2, 4) == 8
