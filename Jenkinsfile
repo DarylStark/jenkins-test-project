@@ -2,22 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Python3 and Python3-venv') {
+        stage('Create Python3 environment') {
             steps {
-                apt install python3 python3-venv
+                sh 'pip3 install --user --upgrade pip'
+                sh 'pip3 install --user virtualenv'
+                sh 'python3 -m venv env'
+                sh 'source env/bin/activate'
             }
         }
 
-        stage('Create Python3 environment') {
+        stage('Activate Virtual environment') {
             steps {
-                python3 -m venv env
-                source env/bin/activate
+                sh 'source env/bin/activate'
             }
         }
 
         stage('Install dependencies') {
             steps {
-                pip3 install -r requirements.txt
+                sh 'pip3 install -r requirements.txt'
             }
         }
 
