@@ -7,7 +7,6 @@ pipeline {
                 sh 'pip3 install --user --upgrade pip'
                 sh 'pip3 install --user virtualenv'
                 sh 'python3 -m venv env'
-                sh 'source env/bin/activate'
             }
         }
 
