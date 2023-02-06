@@ -37,13 +37,9 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME != 'main') {
-                        steps {
-                            echo 'Needs to be integrated'
-                        }
+                        echo 'Needs to be integrated'
                     } else {
-                        steps {
-                            echo 'Already the main branch'
-                        }
+                        echo 'Already the main branch'
                     }
                 }
             }
